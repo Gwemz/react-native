@@ -64,6 +64,8 @@ export default class AdvPage extends Component{
                 <Text style={styles.textInfo} onPress={()=> navigation.navigate('Webs')}>点此跳转web页面</Text>
                 {/* swiper部分 */}
                 <Banner></Banner>
+
+                <Text style={styles.textInfo} onPress={()=> navigation.navigate('Login')}>点此跳转登录页面</Text>
             </View>
         )
     }

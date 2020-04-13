@@ -179,9 +179,10 @@ export default class CarList extends Component {
 
     renderMovie({ item }) {
         return (
-            <TouchableOpacity activeOpacity={0.5} onPress={() => navigation.navigate('Article',{
-                carid: item.id
-            })}>
+            // <TouchableOpacity activeOpacity={0.5} onPress={() => navigation.navigate('Article',{
+            //     carid: item.id
+            // })}>
+            <TouchableOpacity activeOpacity={0.5} onPress={() => navigation.navigate('Article')}>
                 <View style={styles.container}>
                     <Image style={styles.thumbnail} source={{ uri: item.firstphoto }} />
                     <View style={styles.rightContainer}>
