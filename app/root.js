@@ -20,11 +20,11 @@ function HomeStackScreen(){
                 tabBarIcon: ({ focused, color, size }) => {
                     let iconName;
                     if (route.name === 'Home') {
-                        iconName = focused ? require('../source/image/main_choice_click.png') : require('../source/image/main_choice.png');
+                        iconName = focused ? require('../source/image/home_HL.png') : require('../source/image/home.png');
                     } else if (route.name === 'About') {
-                        iconName = focused ? require('../source/image/icon_cartoon_nor_click.png') : require('../source/image/icon_cartoon_nor.png');
+                        iconName = focused ? require('../source/image/my_icon_HL.png') : require('../source/image/my_icon.png');
                     }
-                    return <Image source={iconName} style={{width: 20,height: 20}}/>
+                    return <Image source={iconName} style={{width: 30,height: 30}}/>
                 },
             })}
             tabBarOptions={{
