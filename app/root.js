@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler';
 import React, { Component } from "react";
 import { Text, View , StyleSheet, TouchableOpacity,Button,Image } from "react-native";
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer,DefaultTheme } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import CarList from './pages/cars'
@@ -12,6 +12,19 @@ import AdvPage from './pages/adv'
 import WebViews from './pages/web'
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
+
+const MyTheme = {
+    ...DefaultTheme,
+    colors: {
+      ...DefaultTheme.colors,
+      primary: '#ffffff',
+      card: '#ff6600',
+      text: '#ffffff',
+      background: '#ffffff',
+      border: '#e1e1e1'
+    },
+};
+  
 
 function HomeStackScreen(){
     return (
@@ -29,7 +42,9 @@ function HomeStackScreen(){
             })}
             tabBarOptions={{
                 activeTintColor: 'brown',
+                activeBackgroundColor: '#ffffff',
                 inactiveTintColor: '#666666',
+                inactiveBackgroundColor: '#ffffff'
             }}
         >
             <Tab.Screen name="Home" component={CarList} options={{
@@ -45,7 +60,7 @@ function HomeStackScreen(){
 export default class ButtonPart extends Component{
     render(){
         return (
-            <NavigationContainer>
+            <NavigationContainer theme={MyTheme}>
                 <Stack.Navigator>
                     <Stack.Screen 
                         name="HomePage" 
