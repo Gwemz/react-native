@@ -5,6 +5,7 @@ import { NavigationContainer,DefaultTheme } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import { SafeAreaProvider } from "react-native-safe-area-context";
 import CarList from './pages/cars'
 import ArticlePage from './pages/article'
 import NewsPage from './pages/news'
@@ -63,14 +64,27 @@ function HomeStackScreen(){
     )
 }
 
-function DrawerScreen(){
-    return (
-        <Drawer.Navigator initialRouteName="HomePage">
-            <Drawer.Screen name="Article" component={ArticlePage} options={{title: '文章页'}}></Drawer.Screen>
-            <Drawer.Screen name="News" component={NewsPage} options={{title: '新闻页'}}></Drawer.Screen>
-        </Drawer.Navigator>
-    )
-}
+// function getHeaderTitle(route){
+//     console.log('title:'+route.state)
+//     return 'aa';
+// }
+
+function getHeaderTitle(route) {
+    const routeName = route.state
+      ? // Get the currently active route name in the tab navigator
+        route.state.routes[route.state.index].name
+      : // If state doesn't exist, we need to default to `screen` param if available, or the initial screen
+        // In our case, it's "Feed" as that's the first screen inside the navigator
+        route.params?.screen || 'Home';
+    switch (routeName) {
+      case 'Home':
+        return '首页';
+      case 'Find':
+        return '找车页';
+      case 'About':
+        return '我的页';
+    }
+  }
 
 export default class ButtonPart extends Component{
     constructor(props){
@@ -81,35 +95,39 @@ export default class ButtonPart extends Component{
     }
     render(){
         let isLogin = this.state.isLogin;
-        console.log(isLogin);
+        // console.log(isLogin);
         return (
-            <NavigationContainer theme={MyTheme}>
-                {isLogin?(
-                    <Stack.Navigator
-                        screenOptions={{
-                            headerStyle: {
-                                backgroundColor: '#f4511e',
-                            },
-                            headerTintColor: '#fff',
-                            headerTitleStyle: {
-                                fontWeight: 'bold',
-                            },
-                            headerBackTitleVisible: false
-                        }}
-                    >
-                        <Stack.Screen name="HomePage" component={HomeStackScreen} options={{title: '首页'}}/>
-                        <Stack.Screen name="Article" component={ArticlePage} options={{title: '文章页'}} />
-                        <Stack.Screen name="News" component={NewsPage} options={{title: '新闻页'}} />
-                        <Stack.Screen name="Webs" component={WebViews} options={{title: '移动页'}} />
-                        <Stack.Screen name="Login" component={LoginPage} options={{title: '登录页'}} />
-                    </Stack.Navigator>
-                ):(
-                    <Stack.Navigator>
-                        <Stack.Screen name="Login" component={LoginPage} options={{title: '登录页'}} />
-                    </Stack.Navigator>
-                )}
-                
-            </NavigationContainer>
+            <SafeAreaProvider>
+                <NavigationContainer theme={MyTheme}>
+                    {isLogin?(
+                        <Stack.Navigator
+                            screenOptions={{
+                                headerStyle: {
+                                    backgroundColor: '#f4511e',
+                                },
+                                headerTintColor: '#fff',
+                                headerTitleStyle: {
+                                    fontWeight: 'bold',
+                                },
+                                headerBackTitleVisible: false
+                            }}
+                        >
+                            <Stack.Screen name="HomePage" component={HomeStackScreen} options={({ route })=>({
+                                headerTitle: getHeaderTitle(route),
+                            })}/>
+                            <Stack.Screen name="Article" component={ArticlePage} options={{title: '文章页'}} />
+                            <Stack.Screen name="News" component={NewsPage} options={{title: '新闻页'}} />
+                            <Stack.Screen name="Webs" component={WebViews} options={{title: '移动页'}} />
+                            <Stack.Screen name="Login" component={LoginPage} options={{title: '登录页'}} />
+                        </Stack.Navigator>
+                    ):(
+                        <Stack.Navigator>
+                            <Stack.Screen name="Login" component={LoginPage} options={{title: '登录页'}} />
+                        </Stack.Navigator>
+                    )}
+                    
+                </NavigationContainer>
+            </SafeAreaProvider>
         )
     }
 }

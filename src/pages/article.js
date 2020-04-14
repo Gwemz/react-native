@@ -1,6 +1,7 @@
 import 'react-native-gesture-handler';
 import React, { Component } from "react";
-import { Text, View , StyleSheet, TouchableOpacity,Button } from "react-native";
+import { Text, View , StyleSheet, TouchableOpacity,Button,StatusBar } from "react-native";
+import SafeAreaView from "react-native-safe-area-view"
 // import { NavigationContainer } from '@react-navigation/native';
 // import { createStackNavigator } from '@react-navigation/stack';
 // const Stack = createStackNavigator();
@@ -21,6 +22,7 @@ export default class articlePage extends Component{
             //     carid: carid
             // })
         }
+        // console.log('article页面被创建');
         // console.log(this.state);
     }
     render(){
@@ -30,6 +32,7 @@ export default class articlePage extends Component{
                 id: 666,
                 desc: '从主页而来'
             })}>
+                <StatusBar barStyle="light-content" backgroundColor="#6a51ae" />
                 <View style={styles.container,styles.container2}>
                     <Text style={{color: "#ffffff",fontSize: 24}}>文章页面</Text>
                     {/* <Text>{{carid}}</Text> */}

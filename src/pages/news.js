@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import React, { Component } from "react";
-import { Text, View , StyleSheet, TouchableOpacity, TouchableHighlight, PanResponder , Image } from "react-native";
+import { Text, View , StyleSheet, TouchableOpacity, TouchableHighlight, PanResponder , Image,StatusBar } from "react-native";
 // import { NavigationContainer } from '@react-navigation/native';
 // import { createStackNavigator } from '@react-navigation/stack';
 // const Stack = createStackNavigator();
@@ -14,6 +14,9 @@ import { Text, View , StyleSheet, TouchableOpacity, TouchableHighlight, PanRespo
 // })
 const imgurl = 'http://p4.music.126.net/U8gz-goWF6O0KNWxAQN01Q==/109951163870763627.jpg';
 export default class NewsPage extends Component{
+    componentDidMount(){
+        // console.log('news页面被创建');
+    }
     _onPressIn(){
         console.log('press in');
     }
@@ -55,6 +58,7 @@ export default class NewsPage extends Component{
             //     </TouchableHighlight>
             // </View>
             <View style={styles.container}>
+                {/* <StatusBar barStyle="dark-content" backgroundColor="#6a51ae" /> */}
                 {/* <TouchableHighlight style={styles.box} onPress={()=>this.show()}>
                     <Text style={{fontSize: 24,textAlign: 'center',lineHeight: 100}}>This is text part</Text>
                 </TouchableHighlight> */}
@@ -66,6 +70,7 @@ export default class NewsPage extends Component{
                 {/* </TouchableHighlight> */}
                 {/* 加载base64图片 */}
                 {/* <Image style={{width: 150,height: 150}} source={{uri: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg=='}}/> */}
+                <Text onPress={()=> navigation.goBack()} style={{fontSize: 24,textAlign: 'center',lineHeight: 100,color: '#ffffff'}}>返回上一页</Text>
             </View>
         )
     }
