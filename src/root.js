@@ -76,7 +76,7 @@ export default class ButtonPart extends Component{
     constructor(props){
         super(props)
         this.state = {
-            isLogin: false
+            isLogin: true
         }
     }
     render(){
@@ -85,7 +85,18 @@ export default class ButtonPart extends Component{
         return (
             <NavigationContainer theme={MyTheme}>
                 {isLogin?(
-                    <Stack.Navigator>
+                    <Stack.Navigator
+                        screenOptions={{
+                            headerStyle: {
+                                backgroundColor: '#f4511e',
+                            },
+                            headerTintColor: '#fff',
+                            headerTitleStyle: {
+                                fontWeight: 'bold',
+                            },
+                            headerBackTitleVisible: false
+                        }}
+                    >
                         <Stack.Screen name="HomePage" component={HomeStackScreen} options={{title: '首页'}}/>
                         <Stack.Screen name="Article" component={ArticlePage} options={{title: '文章页'}} />
                         <Stack.Screen name="News" component={NewsPage} options={{title: '新闻页'}} />

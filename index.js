@@ -4,7 +4,7 @@
 
 import {AppRegistry} from 'react-native';
 // import App from './App';
-import Root from './app/root'
+import Root from './src/root'
 // import Button from './app/pages/button'
 import {name as appName} from './app.json';
 
