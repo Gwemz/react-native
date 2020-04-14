@@ -57,6 +57,7 @@ export default class CarList extends Component {
                 // this.setState({
                 //   movies: responseData.movies,
                 // });
+                // console.log(responseData);
                 let carList = currPage === 1?[]:this.state.data,
                 loadMoreState = this.state.loadMoreState;
                 // console.log(responseData);
@@ -95,7 +96,7 @@ export default class CarList extends Component {
                     refreshing={this.state.isLoading} 
                     onRefresh={() => {this.loadData()}} 
                     style={styles.list} 
-                    // keyExtractor={item => item.id}
+                    keyExtractor={(item,index) => item.id}
 
                     // 设置上拉加载
                     onEndReachedThreshold={0.1}

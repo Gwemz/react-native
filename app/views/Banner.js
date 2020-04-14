@@ -13,7 +13,7 @@ export default class Banner extends Component{
         let imgDoms = [];
         for(let i in imgurls){
             imgDoms.push(
-                <View style={styles.slide}>
+                <View style={styles.slide} key={i}>
                     <Image style={styles.imgSize} source={{uri:imgurls[i]}} />
                 </View>
             )

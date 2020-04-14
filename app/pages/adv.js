@@ -18,7 +18,7 @@ export default class AdvPage extends Component{
         let allImgs = [];
         for(let i in imgsData){
             allImgs.push(
-                <Image key={i} source={{uri: imgsData[i]}} style={styles.imgStyle}/>
+                <Image key={i} source={{uri: imgsData[i]}} style={styles.imgStyle} key={i}/>
             )
         }
         return allImgs;
@@ -29,7 +29,7 @@ export default class AdvPage extends Component{
         for(let i in imgsData){
             style = (i == this.state.currentPage)?{backgroundColor:'white'}:{backgroundColor:'brown'}
             pointArr.push(
-                <View style={[styles.pointStyle,style]}></View>
+                <View style={[styles.pointStyle,style]} key={i}></View>
             )
         }
         return pointArr;
