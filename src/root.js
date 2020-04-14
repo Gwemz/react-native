@@ -6,6 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { navigationRef } from "./RootNavigation";
 import CarList from './pages/cars'
 import ArticlePage from './pages/article'
 import NewsPage from './pages/news'
@@ -64,11 +65,6 @@ function HomeStackScreen(){
     )
 }
 
-// function getHeaderTitle(route){
-//     console.log('title:'+route.state)
-//     return 'aa';
-// }
-
 function getHeaderTitle(route) {
     const routeName = route.state
       ? // Get the currently active route name in the tab navigator
@@ -98,7 +94,7 @@ export default class ButtonPart extends Component{
         // console.log(isLogin);
         return (
             <SafeAreaProvider>
-                <NavigationContainer theme={MyTheme}>
+                <NavigationContainer theme={MyTheme} ref={navigationRef}>
                     {isLogin?(
                         <Stack.Navigator
                             screenOptions={{
