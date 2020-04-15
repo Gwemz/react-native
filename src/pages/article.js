@@ -3,11 +3,11 @@ import React, { Component } from "react";
 import { Text, View , StyleSheet, TouchableOpacity,Button,StatusBar } from "react-native";
 import SafeAreaView from "react-native-safe-area-view"
 import * as RootNavigation from '../RootNavigation'
-// import { NavigationContainer } from '@react-navigation/native';
-// import { createStackNavigator } from '@react-navigation/stack';
-// const Stack = createStackNavigator();
+import { useIsFocused } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import NewsPage from './news'
 
-export default class articlePage extends Component{
+export default class Article extends Component{
     constructor(props){
         super(props)
         this.state = {
@@ -27,9 +27,9 @@ export default class articlePage extends Component{
         // console.log(this.state);
     }
     render(){
-        // const navigation = this.props.navigation;
+        const navigation = this.props.navigation;
         return (
-            <TouchableOpacity activeOpacity={0.8} onPress={() => RootNavigation.navigate('News',{
+            <TouchableOpacity activeOpacity={0.8} onPress={() => navigation.navigate('News',{
                 id: 666,
                 desc: '从主页而来'
             })}>
@@ -70,3 +70,21 @@ const styles = StyleSheet.create({
         backgroundColor: "#ddcc88"
     }
 })
+
+// const Stack = createStackNavigator();
+// export default function(props) {
+//     const isFocused = useIsFocused();
+//     return(
+//       <Stack.Navigator
+//         initialRouteName="Article"
+//         headerMode="none"
+//       >
+//         <Stack.Screen name="Article" options={{title: 'Word List'}}>
+//             {props => <Article {...props} isFocused={isFocused} />}
+//         </Stack.Screen>
+//         <Stack.Screen name="NewsPage" options={{title: 'Word Definition'}}>
+//             {props => <NewsPage {...props}  />}
+//         </Stack.Screen>
+//       </Stack.Navigator>
+//     );
+// }

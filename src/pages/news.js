@@ -1,6 +1,7 @@
 import 'react-native-gesture-handler';
 import React, { Component } from "react";
 import { Text, View , StyleSheet, TouchableOpacity, TouchableHighlight, PanResponder , Image,StatusBar } from "react-native";
+import { useNavigation,useRoute } from '@react-navigation/native';
 // import { NavigationContainer } from '@react-navigation/native';
 // import { createStackNavigator } from '@react-navigation/stack';
 // const Stack = createStackNavigator();
