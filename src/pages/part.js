@@ -4,9 +4,10 @@ import { Text, View , StyleSheet, TouchableOpacity,Button } from "react-native";
 
 export default class ButtonPart extends Component{
     render(){
+        const navigation = this.props.navigation;
         return (
             <View style={styles.pageContainer}>
-                <Text style={{color: '#ffffff',fontSize: 24}}>这是Part页面</Text>
+                <Text style={{color: '#ffffff',fontSize: 24}} onPress={()=> navigation.navigate('Webs')}>这是Part页面</Text>
             </View>
         )
     }

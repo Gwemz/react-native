@@ -7,6 +7,8 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import FooterTabs from './FooterTabs'
 import LoginStack from './LoginStack'
 import MainStack from './MainStack'
+import Webs from '../pages/web'
+import Article from '../pages/article'
 
 const MyTheme = {
     ...DefaultTheme,
@@ -70,6 +72,16 @@ const App = () => (
                     name="MainStack" 
                     component={MainStack} 
                     options={{title: '内部页'}}
+                />
+                <Stack.Screen 
+                    name="Webs" 
+                    component={Webs} 
+                    options={{title: 'web页'}}
+                />
+                <Stack.Screen 
+                    name="Article" 
+                    component={Article} 
+                    options={{title: '文章页'}}
                 />
             </Stack.Navigator>
         </NavigationContainer>

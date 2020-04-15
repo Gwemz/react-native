@@ -61,7 +61,7 @@ export default class AdvPage extends Component{
                 <View style={styles.pointBox}>
                     {this.renderPagingPoint()}
                 </View>
-                <Text style={styles.textInfo} onPress={()=> navigation.navigate('MainStack')}>点此跳转web页面</Text>
+                <Text style={styles.textInfo} onPress={()=> navigation.navigate('Webs')}>点此跳转web页面</Text>
                 {/* swiper部分 */}
                 <Banner></Banner>
 
