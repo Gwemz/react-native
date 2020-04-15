@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { Text, View , StyleSheet, TouchableOpacity,Button,StatusBar } from "react-native";
 // import SafeAreaView from "react-native-safe-area-view"
 // import * as RootNavigation from '../RootNavigation'
-// import { useIsFocused } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 // import { createStackNavigator } from '@react-navigation/stack';
 // import NewsPage from './news'
 
@@ -28,6 +28,7 @@ export default class Article extends Component{
     }
     render(){
         const navigation = this.props.navigation;
+        // const navigation = useNavigation();
         return (
             <TouchableOpacity activeOpacity={0.8} onPress={() => navigation.navigate('MainStack',{
                 id: 666,

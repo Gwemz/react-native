@@ -62,7 +62,7 @@ const App = () => (
                     })}
                 />
                 <Stack.Screen 
-                    name="Login" 
+                    name="LoginStack" 
                     component={LoginStack} 
                     options={{title: '登录页'}} 
                 />

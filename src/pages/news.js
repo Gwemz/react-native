@@ -18,46 +18,25 @@ export default class NewsPage extends Component{
     componentDidMount(){
         // console.log('news页面被创建');
     }
-    _onPressIn(){
-        console.log('press in');
-    }
-    _onPressOut(){
-        console.log('press out');
-    }
-    _onPress(){
-        console.log('press')
-    }
-    _onLongPress(){
-        console.log('press long');
-    }
-    show(){
-        alert('This is text part');
-    }
+    // _onPressIn(){
+    //     console.log('press in');
+    // }
+    // _onPressOut(){
+    //     console.log('press out');
+    // }
+    // _onPress(){
+    //     console.log('press')
+    // }
+    // _onLongPress(){
+    //     console.log('press long');
+    // }
+    // show(){
+    //     alert('This is text part');
+    // }
     render(){
         const navigation = this.props.navigation;
         // console.log(this.props.navigation);
         return (
-            // <NavigationContainer>
-            //     <Stack.Navigator>
-            //         <Stack.Screen name="News" component={NewsPart} options={{title: 'Newspage'}}></Stack.Screen>
-            //     </Stack.Navigator>
-            // </NavigationContainer>
-            // <TouchableOpacity activeOpacity={0.8} onPress={() => navigation.navigate('Article')}>
-            //     <View style={styles.container}>
-            //         <Text style={{color: "#ffffff",fontSize: 24}}>新闻页面</Text>
-            //     </View>
-            // </TouchableOpacity>
-            // <View style={styles.container}>
-            //     <TouchableHighlight 
-            //         style={styles.box}
-            //         onPressIn={this._onPressIn}
-            //         onPressOut={this._onPressOut}
-            //         onPress={this._onPress}
-            //         onLongPress={this._onLongPress}
-            //     >
-            //         <View style={styles.item}></View>
-            //     </TouchableHighlight>
-            // </View>
             <View style={styles.container}>
                 {/* <StatusBar barStyle="dark-content" backgroundColor="#6a51ae" /> */}
                 {/* <TouchableHighlight style={styles.box} onPress={()=>this.show()}>
@@ -80,11 +59,12 @@ export default class NewsPage extends Component{
 const styles = StyleSheet.create({
     container:{
         width: "100%",
-        height: 300,
+        // height: 300,
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#ff6600"
+        backgroundColor: "#ff6600",
+        paddingTop: 50
     },
     topBox: {
         width: "100%",

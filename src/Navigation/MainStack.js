@@ -11,7 +11,7 @@ const defaultConfig = {
 
 const MainStack = () => (
     <Stack.Navigator
-        initialRouteName="Main"
+        initialRouteName="MainStack"
         screenOptions={{ gestureEnabled: false }}
     >
         <Stack.Screen 

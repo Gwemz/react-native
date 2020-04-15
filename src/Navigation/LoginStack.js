@@ -12,7 +12,7 @@ const defaultConfig = {
 
 const LoginStack = () => (
     <Stack.Navigator
-        initialRouteName="LoginOrSignup"
+        initialRouteName="loginStack"
         screenOptions={{ gestureEnabled: false }}
     >
         <Stack.Screen 
