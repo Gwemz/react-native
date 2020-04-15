@@ -72,6 +72,7 @@ export default class NewsPage extends Component{
                 {/* 加载base64图片 */}
                 {/* <Image style={{width: 150,height: 150}} source={{uri: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg=='}}/> */}
                 <Text onPress={()=> navigation.goBack()} style={{fontSize: 24,textAlign: 'center',lineHeight: 100,color: '#ffffff'}}>返回上一页</Text>
+                <Text onPress={()=> navigation.navigate('Buttons')} style={{fontSize: 24,textAlign: 'center',lineHeight: 100,color: '#ffffff'}}>跳转按钮页</Text>
             </View>
         )
     }

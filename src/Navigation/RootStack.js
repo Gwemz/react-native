@@ -5,7 +5,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import FooterTabs from './FooterTabs'
-import LoginPage from '../pages/login'
+import LoginStack from './LoginStack'
+import MainStack from './MainStack'
 
 const MyTheme = {
     ...DefaultTheme,
@@ -54,7 +55,7 @@ const App = () => (
                 }}
             >
                 <Stack.Screen 
-                    name="HomePage" 
+                    name="FooterTabs" 
                     component={FooterTabs} 
                     options={({ route })=>({
                         headerTitle: getHeaderTitle(route),
@@ -62,8 +63,13 @@ const App = () => (
                 />
                 <Stack.Screen 
                     name="Login" 
-                    component={LoginPage} 
+                    component={LoginStack} 
                     options={{title: '登录页'}} 
+                />
+                <Stack.Screen 
+                    name="MainStack" 
+                    component={MainStack} 
+                    // options={{title: '登录页'}} 
                 />
             </Stack.Navigator>
         </NavigationContainer>
