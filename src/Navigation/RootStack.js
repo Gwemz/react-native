@@ -69,7 +69,7 @@ const App = () => (
                 <Stack.Screen 
                     name="MainStack" 
                     component={MainStack} 
-                    // options={{title: '登录页'}} 
+                    options={{title: '内部页'}}
                 />
             </Stack.Navigator>
         </NavigationContainer>

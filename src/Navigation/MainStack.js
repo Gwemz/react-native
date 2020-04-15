@@ -1,7 +1,7 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import News from '../pages/news';
-import Buttons from '../pages/button'
+import Part from '../pages/part'
 import Webs from '../pages/web'
 const Stack = createStackNavigator();
 
@@ -20,9 +20,9 @@ const MainStack = () => (
             options={{headerShown: false,title: '新闻页'}}
         />
         <Stack.Screen 
-            name="Buttons" 
-            component={Buttons} 
-            options={{headerShown: false,title: '按钮页'}}
+            name="Part" 
+            component={Part} 
+            options={{headerShown: false,title: 'Part页'}}
         />
         <Stack.Screen 
             name="Webs" 
