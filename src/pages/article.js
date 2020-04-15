@@ -6,6 +6,8 @@ import { Text, View , StyleSheet, TouchableOpacity,Button,StatusBar } from "reac
 import { useNavigation } from '@react-navigation/native';
 // import { createStackNavigator } from '@react-navigation/stack';
 // import NewsPage from './news'
+// const navigation = useNavigation();
+import MatchContainer from '../components/MatchContainer'
 
 export default class Article extends Component{
     constructor(props){
@@ -28,20 +30,22 @@ export default class Article extends Component{
     }
     render(){
         const navigation = this.props.navigation;
+
         // const navigation = useNavigation();
+        // console.log(navigation);
         return (
-            <TouchableOpacity activeOpacity={0.8} onPress={() => navigation.navigate('MainStack',{
-                id: 666,
-                desc: '从主页而来'
-            })}>
+            <TouchableOpacity activeOpacity={0.8} 
+            // onPress={() => navigation.navigate('News')}
+            >
             {/* <TouchableOpacity activeOpacity={0.8} onPress={() => RootNavigation.push('News',{
                 id: 666,
                 desc: '从主页而来'
             })}> */}
-                <StatusBar barStyle="light-content" backgroundColor="#6a51ae" />
+                <StatusBar barStyle="light-content"/>
                 <View style={styles.container,styles.container2}>
-                    <Text style={{color: "#ffffff",fontSize: 24}}>文章页面</Text>
+                    <Text style={{color: "#ffffff",fontSize: 24}} onPress={() => navigation.navigate('Find')}>文章页面</Text>
                     {/* <Text>{{carid}}</Text> */}
+                    <MatchContainer />
                 </View>
             </TouchableOpacity>
         )

@@ -73,7 +73,7 @@ const App = () => (
                     component={MainStack} 
                     options={{title: '内部页'}}
                 />
-                <Stack.Screen 
+                {/* <Stack.Screen 
                     name="Webs" 
                     component={Webs} 
                     options={{title: 'web页'}}
@@ -82,7 +82,7 @@ const App = () => (
                     name="Article" 
                     component={Article} 
                     options={{title: '文章页'}}
-                />
+                /> */}
             </Stack.Navigator>
         </NavigationContainer>
     </SafeAreaProvider>
