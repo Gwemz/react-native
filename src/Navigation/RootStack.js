@@ -7,8 +7,10 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import FooterTabs from './FooterTabs'
 import LoginStack from './LoginStack'
 import MainStack from './MainStack'
+import DetailStack from './DetailStack'
 import Webs from '../pages/web'
-import Article from '../pages/article'
+// import Article from '../pages/article'
+// import Detail from '../pages/detail'
 
 const MyTheme = {
     ...DefaultTheme,
@@ -71,18 +73,23 @@ const App = () => (
                 <Stack.Screen 
                     name="MainStack" 
                     component={MainStack} 
-                    options={{title: '内部页'}}
+                    options={{title: '内部页',headerShown: true}}
                 />
                 {/* <Stack.Screen 
                     name="Webs" 
                     component={Webs} 
                     options={{title: 'web页'}}
-                />
-                <Stack.Screen 
+                /> */}
+                {/* <Stack.Screen 
                     name="Article" 
                     component={Article} 
                     options={{title: '文章页'}}
                 /> */}
+                <Stack.Screen 
+                    name="Detail" 
+                    component={DetailStack} 
+                    options={{title: '车辆详情'}}
+                />
             </Stack.Navigator>
         </NavigationContainer>
     </SafeAreaProvider>

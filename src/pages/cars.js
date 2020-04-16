@@ -183,7 +183,7 @@ export default class CarList extends Component {
             // <TouchableOpacity activeOpacity={0.5} onPress={() => navigation.navigate('Article',{
             //     carid: item.id
             // })}>
-            <TouchableOpacity activeOpacity={0.5} onPress={() => navigation.navigate('Article')}>
+            <TouchableOpacity activeOpacity={0.5} onPress={() => navigation.navigate('Detail')}>
                 <View style={styles.container}>
                     <Image style={styles.thumbnail} source={{ uri: item.firstphoto }} />
                     <View style={styles.rightContainer}>

@@ -2,7 +2,8 @@ import * as React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {Image} from "react-native";
 import CarList from '../pages/cars'
-import Article from '../pages/article'
+// import Article from '../pages/article'
+import Home from '../pages/home'
 import AdvPage from '../pages/adv'
 
 const Tab = createBottomTabNavigator();
@@ -29,7 +30,7 @@ const FooterTabNav = () => (
             inactiveBackgroundColor: '#ffffff'
         }}
     >
-        <Tab.Screen name="Home" component={Article} options={{
+        <Tab.Screen name="Home" component={Home} options={{
             title: '首页',
         }}></Tab.Screen>
         <Tab.Screen name="Find" component={CarList} options={{

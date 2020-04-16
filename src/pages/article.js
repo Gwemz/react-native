@@ -43,7 +43,7 @@ export default class Article extends Component{
             })}> */}
                 <StatusBar barStyle="light-content"/>
                 <View style={styles.container,styles.container2}>
-                    <Text style={{color: "#ffffff",fontSize: 24}} onPress={() => navigation.navigate('Find')}>文章页面</Text>
+                    <Text style={{color: "#ffffff",fontSize: 24}} onPress={() => navigation.navigate('MainStack')}>文章页面</Text>
                     {/* <Text>{{carid}}</Text> */}
                     <MatchContainer />
                 </View>
