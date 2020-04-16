@@ -7,6 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 // import { createStackNavigator } from '@react-navigation/stack';
 // import NewsPage from './news'
 // const navigation = useNavigation();
+import Article from './article'
 import MatchContainer from '../components/MatchContainer'
 
 export default class HomePage extends Component{
@@ -27,7 +28,8 @@ export default class HomePage extends Component{
         const navigation = this.props.navigation;
         return (
             <TouchableOpacity activeOpacity={0.8} 
-            onPress={() => navigation.navigate('Detail',{id: 'bb'})}
+            // onPress={() => navigation.navigate('Detail',{id: 'bb'})}
+            onPress={() => navigation.push('Detail')}
             >
                 <StatusBar barStyle="light-content"/>
                 <View style={styles.container,styles.container2}>

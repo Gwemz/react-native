@@ -1,14 +1,15 @@
 import 'react-native-gesture-handler';
 import React, { Component } from "react";
+import { NavigationContainer } from '@react-navigation/native';
 import { Text, View , StyleSheet, TouchableOpacity,Button,StatusBar } from "react-native";
 // import SafeAreaView from "react-native-safe-area-view"
 // import * as RootNavigation from '../RootNavigation'
-import { useNavigation } from '@react-navigation/native';
+// import { useNavigation } from '@react-navigation/native';
 // import { createStackNavigator } from '@react-navigation/stack';
 // import NewsPage from './news'
 // const navigation = useNavigation();
 import MatchContainer from '../components/MatchContainer'
-
+import { navigationRef, isMountedRef } from '../Navigation/NavigatoinUtil';
 export default class Article extends Component{
     constructor(props){
         super(props)
@@ -29,25 +30,32 @@ export default class Article extends Component{
         // console.log(this.state);
     }
     render(){
+        React.useEffect(() => {
+            isMountedRef.current = true;
+        
+            return () => (isMountedRef.current = false);
+        }, []);
         const navigation = this.props.navigation;
 
         // const navigation = useNavigation();
         // console.log(navigation);
         return (
-            <TouchableOpacity activeOpacity={0.8} 
-            // onPress={() => navigation.navigate('News')}
-            >
-            {/* <TouchableOpacity activeOpacity={0.8} onPress={() => RootNavigation.push('News',{
-                id: 666,
-                desc: '从主页而来'
-            })}> */}
-                <StatusBar barStyle="light-content"/>
-                <View style={styles.container,styles.container2}>
-                    <Text style={{color: "#ffffff",fontSize: 24}} onPress={() => navigation.navigate('MainStack')}>文章页面</Text>
-                    {/* <Text>{{carid}}</Text> */}
-                    <MatchContainer />
-                </View>
-            </TouchableOpacity>
+            <NavigationContainer ref={navigationRef}>
+                <TouchableOpacity activeOpacity={0.8} 
+                // onPress={() => navigation.navigate('News')}
+                >
+                {/* <TouchableOpacity activeOpacity={0.8} onPress={() => RootNavigation.push('News',{
+                    id: 666,
+                    desc: '从主页而来'
+                })}> */}
+                    <StatusBar barStyle="light-content"/>
+                    <View style={styles.container,styles.container2}>
+                        <Text style={{color: "#ffffff",fontSize: 24}} onPress={() => navigation.navigate('MainStack')}>文章页面</Text>
+                        {/* <Text>{{carid}}</Text> */}
+                        <MatchContainer />
+                    </View>
+                </TouchableOpacity>
+            </NavigationContainer>
         )
     }
 }
