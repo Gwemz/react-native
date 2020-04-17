@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Text, View , StyleSheet, TouchableOpacity,Button,TextInput,ScrollView,Image,Dimensions,StatusBar} from "react-native";
 // import Swiper from 'react-native-swiper';
-import Banner from  '../views/Banner'
+import Banner from  '../components/Banner'
 let imgsData = ['http://www.hx2car.com/upload/daily/normal/MobileIndexPage/MobileIndexTop/2019/20191119190919.jpg','http://www.hx2car.com/upload/daily/normal/MobileIndexPage/MobileIndexTop/2020/20200327165930.jpg','http://www.hx2car.com/upload/daily/normal/MobileIndexPage/MobileIndexTop/2020/20200327100115.jpg']
 let screeWidth = Dimensions.get('window').width;
 export default class AdvPage extends Component{

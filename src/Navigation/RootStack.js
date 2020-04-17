@@ -75,11 +75,11 @@ const App = () => (
                     component={MainStack} 
                     options={{title: '内部页',headerShown: true}}
                 />
-                {/* <Stack.Screen 
+                <Stack.Screen 
                     name="Webs" 
                     component={Webs} 
                     options={{title: 'web页'}}
-                /> */}
+                />
                 {/* <Stack.Screen 
                     name="Article" 
                     component={Article} 

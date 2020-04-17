@@ -7,7 +7,7 @@ export default class ButtonPart extends Component{
         const navigation = this.props.navigation;
         return (
             <View style={styles.pageContainer}>
-                <Text style={{color: '#ffffff',fontSize: 24}} onPress={()=> navigation.navigate('Webs')}>这是Part页面</Text>
+                <Text style={{color: '#ffffff',fontSize: 24}} onPress={()=> navigation.navigate('News')}>这是Part页面</Text>
             </View>
         )
     }
