@@ -48,7 +48,7 @@ export default class Article extends Component{
                     id: 666,
                     desc: '从主页而来'
                 })}> */}
-                    <StatusBar barStyle="light-content"/>
+                    {/* <StatusBar barStyle="light-content"/> */}
                     <View style={styles.container,styles.container2}>
                         <Text style={{color: "#ffffff",fontSize: 24}} onPress={() => navigation.navigate('MainStack')}>文章页面</Text>
                         {/* <Text>{{carid}}</Text> */}

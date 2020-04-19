@@ -21,22 +21,22 @@ const FooterTabNav = () => (
                 }else if (route.name === 'About') {
                     iconName = focused ? require('../../source/image/my_icon_HL.png') : require('../../source/image/my_icon.png');
                 }
-                return <Image source={iconName} style={{width: 30,height: 30}}/>
+                return <Image source={iconName} style={{width: 25,height: 25}}/>
             },
         })}
         tabBarOptions={{
-            // activeTintColor: 'brown',
-            // activeBackgroundColor: '#ffffff',
-            // inactiveTintColor: '#666666',
-            // inactiveBackgroundColor: '#ffffff'
+            activeTintColor: 'brown',
+            activeBackgroundColor: '#ffffff',
+            inactiveTintColor: '#666666',
+            inactiveBackgroundColor: '#ffffff'
 
-            activeTintColor: 'white',
-            inactiveTintColor: 'gray',
-            activeBackgroundColor: '#219bd9',
-            inactiveBackgroundColor: '#d6f9ff',
-            safeAreaInsets: {bottom: 0},
-            style: {height: 70},
-            tabStyle: {paddingBottom: 15}
+            // activeTintColor: 'white',
+            // inactiveTintColor: 'gray',
+            // activeBackgroundColor: '#219bd9',
+            // inactiveBackgroundColor: '#d6f9ff',
+            // safeAreaInsets: {bottom: 0},
+            // style: {height: 70},
+            // tabStyle: {paddingBottom: 15}
         }}
     >
         <Tab.Screen name="Home" component={Home} options={{

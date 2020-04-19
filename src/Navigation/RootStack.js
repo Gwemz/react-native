@@ -1,5 +1,7 @@
 import React,{ Component } from "react";
-import {StatusBar} from 'react-native';
+import {
+    StatusBar,
+  } from 'react-native';
 import { NavigationContainer,DefaultTheme } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 // import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -47,8 +49,9 @@ const Stack = createStackNavigator();
 const App = () => (
     <SafeAreaProvider>
         <NavigationContainer theme={MyTheme}>
-            <StatusBar barStyle="default" backgroundColor="#219bd9" />
+            <StatusBar barStyle="dark-content"/>
             <Stack.Navigator
+                headerMode="none"
                 screenOptions={{
                     headerStyle: {
                         backgroundColor: '#f4511e',
@@ -57,7 +60,7 @@ const App = () => (
                     headerTitleStyle: {
                         fontWeight: 'bold',
                     },
-                    headerBackTitleVisible: false
+                    headerBackTitleVisible: false,
                 }}
             >
                 <Stack.Screen 
@@ -65,7 +68,7 @@ const App = () => (
                     component={FooterTabs} 
                     options={({ route })=>({
                         headerTitle: getHeaderTitle(route),
-                        headerShown: false
+                        // headerShown: true
                     })}
                 />
                 <Stack.Screen 
@@ -76,7 +79,7 @@ const App = () => (
                 <Stack.Screen 
                     name="MainStack" 
                     component={MainStack} 
-                    options={{title: '内部页',headerShown: true}}
+                    options={{title: '内部页'}}
                 />
                 <Stack.Screen 
                     name="Webs" 
@@ -91,7 +94,7 @@ const App = () => (
                 <Stack.Screen 
                     name="Detail" 
                     component={DetailStack} 
-                    options={{title: '车辆详情',headerShown: false}}
+                    options={{title: '车辆详情'}}
                 />
             </Stack.Navigator>
         </NavigationContainer>

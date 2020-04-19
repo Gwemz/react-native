@@ -35,7 +35,7 @@ export default class HomePage extends Component{
                 // onPress={() => navigation.navigate('Detail',{id: 'bb'})}
                 onPress={() => navigation.push('Detail')}
                 >
-                    <StatusBar barStyle="light-content"/>
+                    {/* <StatusBar barStyle="light-content"/> */}
                     <View style={styles.container,styles.container2}>
                         <Text style={{color: "#ffffff",fontSize: 24}}>这是详情页</Text>
                     </View>

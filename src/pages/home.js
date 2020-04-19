@@ -40,7 +40,7 @@ class HomeChild extends Component{
             // onPress={() => navigation.navigate('MainStack')}
             onPress={this.updateState}
             >
-                <StatusBar barStyle="light-content"/>
+                {/* <StatusBar barStyle="light-content"/> */}
                 <View style={styles.container,styles.container2}>
                 <Text style={{color: "#ffffff",fontSize: 24}}>项目负责人：{name} 年龄：{age}</Text>
                 </View>
@@ -54,18 +54,20 @@ export default class HomePage extends Component{
     render(){
         const navigation = this.props.navigation;
         return (
-            <SafeAreaView style={commonStyles.content}>
-                <Header navigation={navigation} Title={'首页'} isAtRoot={true} />
-                <View>
-                    <HomeChild name={'strong man'} />
-                    <Text style={{color: '#ff9988',fontSize: 28,textAlign: 'center',lineHeight: 100}} 
-                    // onPress={() => Linking.openURL('https://www.wdcorner.cn')}
-                    onPress={()=> navigation.navigate('Detail')}
-                    >
-                        area
-                    </Text>
-                </View>
-            </SafeAreaView>
+            <>
+                <SafeAreaView style={commonStyles.content}>
+                    <Header navigation={navigation} Title={'首页'} isAtRoot={true} />
+                    <View>
+                        <HomeChild name={'daguo'} />
+                        <Text style={{color: '#ff9988',fontSize: 28,textAlign: 'center',lineHeight: 100}} 
+                        // onPress={() => Linking.openURL('https://www.wdcorner.cn')}
+                        onPress={()=> navigation.navigate('Detail')}
+                        >
+                            area
+                        </Text>
+                    </View>
+                </SafeAreaView>
+            </>
         )
     }
 }
