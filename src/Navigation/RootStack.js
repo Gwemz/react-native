@@ -1,4 +1,5 @@
 import React,{ Component } from "react";
+import {StatusBar} from 'react-native';
 import { NavigationContainer,DefaultTheme } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 // import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -37,7 +38,7 @@ function getHeaderTitle(route) {
       case 'Find':
         return '找车页';
       case 'About':
-        return '我的页';
+        return '关于';
     }
 }
 
@@ -46,6 +47,7 @@ const Stack = createStackNavigator();
 const App = () => (
     <SafeAreaProvider>
         <NavigationContainer theme={MyTheme}>
+            <StatusBar barStyle="default" backgroundColor="#219bd9" />
             <Stack.Navigator
                 screenOptions={{
                     headerStyle: {
@@ -63,6 +65,7 @@ const App = () => (
                     component={FooterTabs} 
                     options={({ route })=>({
                         headerTitle: getHeaderTitle(route),
+                        headerShown: false
                     })}
                 />
                 <Stack.Screen 
@@ -88,7 +91,7 @@ const App = () => (
                 <Stack.Screen 
                     name="Detail" 
                     component={DetailStack} 
-                    options={{title: '车辆详情'}}
+                    options={{title: '车辆详情',headerShown: false}}
                 />
             </Stack.Navigator>
         </NavigationContainer>

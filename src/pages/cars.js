@@ -11,9 +11,11 @@
 
 import 'react-native-gesture-handler';
 import React, { Component } from "react";
-import { Image, StyleSheet, Text, View, FlatList, TouchableOpacity, Platform, NativeModules,ActivityIndicator } from "react-native";
+import { Image, StyleSheet, Text, View, FlatList, TouchableOpacity, Platform, NativeModules,ActivityIndicator,SafeAreaView} from "react-native";
 // import { NavigationContainer } from '@react-navigation/native';
 // import { createStackNavigator } from '@react-navigation/stack';
+import Header from '../components/header'
+import commonStyles from '../../commonStyles'
 const REQUEST_URL = 'http://m.hx2car.com/wap/getMoreCar.json';
 // const Stack = createStackNavigator();
 
@@ -89,21 +91,24 @@ export default class CarList extends Component {
         }
 
         return (
-            <View style={styles.pageContainer}>
-                <FlatList 
-                    data={this.state.data} 
-                    renderItem={this.renderMovie} 
-                    refreshing={this.state.isLoading} 
-                    onRefresh={() => {this.loadData()}} 
-                    style={styles.list} 
-                    keyExtractor={(item,index) => item.id}
+            <SafeAreaView style={commonStyles.content}>
+                <Header navigation={navigation} Title={'找车页'} isAtRoot={true} />
+                <View style={styles.pageContainer}>
+                    <FlatList 
+                        data={this.state.data} 
+                        renderItem={this.renderMovie} 
+                        refreshing={this.state.isLoading} 
+                        onRefresh={() => {this.loadData()}} 
+                        style={styles.list} 
+                        keyExtractor={(item,index) => item.id}
 
-                    // 设置上拉加载
-                    onEndReachedThreshold={0.1}
-                    ListFooterComponent={()=>this.renderLoadMoreView()}
-                    onEndReached={()=>this.loadMoreData()}
-                />
-            </View>
+                        // 设置上拉加载
+                        onEndReachedThreshold={0.1}
+                        ListFooterComponent={()=>this.renderLoadMoreView()}
+                        onEndReached={()=>this.loadMoreData()}
+                    />
+                </View>
+            </SafeAreaView>
         )
     }
 

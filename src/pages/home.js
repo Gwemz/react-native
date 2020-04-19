@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import React, { Component } from "react";
-import { Text, View , StyleSheet, TouchableOpacity,Button,StatusBar,Linking } from "react-native";
+import { Text, View , StyleSheet, TouchableOpacity,Button,StatusBar,Linking,SafeAreaView } from "react-native";
 // import SafeAreaView from "react-native-safe-area-view"
 // import * as RootNavigation from '../RootNavigation'
 import { useNavigation } from '@react-navigation/native';
@@ -8,6 +8,8 @@ import { useNavigation } from '@react-navigation/native';
 // import NewsPage from './news'
 // const navigation = useNavigation();
 import MatchContainer from '../components/MatchContainer'
+import Header from '../components/header'
+import commonStyles from '../../commonStyles'
 
 // 子组件
 class HomeChild extends Component{
@@ -50,13 +52,20 @@ class HomeChild extends Component{
 // 父组件
 export default class HomePage extends Component{
     render(){
+        const navigation = this.props.navigation;
         return (
-            <View>
-                <HomeChild name={'wdcorner'} />
-                <Text style={{color: '#ff9988',fontSize: 28,textAlign: 'center',lineHeight: 100}} onPress={() => Linking.openURL('https://www.wdcorner.cn')}>
-                    area
-                </Text>
-            </View>
+            <SafeAreaView style={commonStyles.content}>
+                <Header navigation={navigation} Title={'首页'} isAtRoot={true} />
+                <View>
+                    <HomeChild name={'strong man'} />
+                    <Text style={{color: '#ff9988',fontSize: 28,textAlign: 'center',lineHeight: 100}} 
+                    // onPress={() => Linking.openURL('https://www.wdcorner.cn')}
+                    onPress={()=> navigation.navigate('Detail')}
+                    >
+                        area
+                    </Text>
+                </View>
+            </SafeAreaView>
         )
     }
 }
