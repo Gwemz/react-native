@@ -72,6 +72,11 @@ const App = () => (
                     })}
                 />
                 <Stack.Screen 
+                    name="Detail" 
+                    component={DetailStack} 
+                    options={{title: '车辆详情'}}
+                />
+                <Stack.Screen 
                     name="LoginStack" 
                     component={LoginStack} 
                     options={{title: '登录页'}} 
@@ -91,11 +96,7 @@ const App = () => (
                     component={Article} 
                     options={{title: '文章页'}}
                 /> */}
-                <Stack.Screen 
-                    name="Detail" 
-                    component={DetailStack} 
-                    options={{title: '车辆详情'}}
-                />
+                
             </Stack.Navigator>
         </NavigationContainer>
     </SafeAreaProvider>

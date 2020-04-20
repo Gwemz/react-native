@@ -1,15 +1,20 @@
 import 'react-native-gesture-handler';
 import React, { Component } from "react";
 import { Text, View , StyleSheet, TouchableOpacity,Button,StatusBar,Linking,SafeAreaView } from "react-native";
-// import SafeAreaView from "react-native-safe-area-view"
-// import * as RootNavigation from '../RootNavigation'
-import { useNavigation } from '@react-navigation/native';
-// import { createStackNavigator } from '@react-navigation/stack';
-// import NewsPage from './news'
-// const navigation = useNavigation();
-import MatchContainer from '../components/MatchContainer'
 import Header from '../components/header'
 import commonStyles from '../../commonStyles'
+import { createStore } from 'redux';
+
+function counter(state = 0, action) {
+    switch (action.type) {
+    case 'INCREMENT':
+      return state + 1;
+    case 'DECREMENT':
+      return state - 1;
+    default:
+      return state;
+    }
+}
 
 // 子组件
 class HomeChild extends Component{
@@ -18,7 +23,7 @@ class HomeChild extends Component{
         this.state = {
             carid: '',
             name: props.name || '大锅',
-            age: '28'
+            age: '27'
         }
     }
     componentDidMount(){
@@ -27,9 +32,17 @@ class HomeChild extends Component{
         //     let carid = route.params.carid;
         //     console.log(carid);
         // }
+        let store = createStore(counter);
+        // console.log(store);
+        store.subscribe(() => {
+            console.log(store.getState());
+        })
+        store.dispatch({type: 'INCREMENT'})
+        store.dispatch({type: 'INCREMENT'})
+        store.dispatch({type: 'DECREMENT'})
     }
     updateState = ()=> {
-        const age = this.state.age == '28'?'正青春':'28';
+        const age = this.state.age == '27'?'正青春':'27';
         this.setState({age})
     }
     render(){

@@ -47,7 +47,12 @@ yarn add moment
 
 // 安装iOS需要的本机模块
 cd ios && pod install && cd ..
+
+// 安装redux 
+yarn add redux
 ```
+
+@react-native-community/geolocation
 
 
 
