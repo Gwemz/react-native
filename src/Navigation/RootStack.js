@@ -14,6 +14,8 @@ import DetailStack from './DetailStack'
 import Webs from '../pages/web'
 // import Article from '../pages/article'
 // import Detail from '../pages/detail'
+import Todo from '../pages/todo'
+import Detail from '../pages/detail';
 
 const MyTheme = {
     ...DefaultTheme,
@@ -72,8 +74,12 @@ const App = () => (
                     })}
                 />
                 <Stack.Screen 
+                    name="Todo" 
+                    component={Todo} 
+                />
+                <Stack.Screen 
                     name="Detail" 
-                    component={DetailStack} 
+                    component={Detail} 
                     options={{title: '车辆详情'}}
                 />
                 <Stack.Screen 

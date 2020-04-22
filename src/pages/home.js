@@ -51,9 +51,9 @@ class HomeChild extends Component{
         // store.dispatch({type: 'DECREMENT'})
         // console.log(store.getState());
 
-        console.log(store.getState().todos);
+        // console.log(store.getState());
         const unsubscribe = store.subscribe(()=>{
-            console.log(store.getState());
+            // console.log(store.getState());
         })
 
         store.dispatch(addTodo('这是大锅的第一个任务清单'));
@@ -99,7 +99,9 @@ class HomeChild extends Component{
 // 父组件
 export default class HomePage extends Component{
     render(){
+        const {route} = this.props;
         const navigation = this.props.navigation;
+        console.log(route);
         return (
             <>
                 <SafeAreaView style={commonStyles.content}>
@@ -108,7 +110,9 @@ export default class HomePage extends Component{
                         <HomeChild name={'daguo'} />
                         <Text style={{color: '#ff9988',fontSize: 28,textAlign: 'center',lineHeight: 100}} 
                         // onPress={() => Linking.openURL('https://www.wdcorner.cn')}
-                        onPress={()=> navigation.navigate('Detail')}
+                            onPress={() => {
+                                navigation.navigate('Detail',{name: 'home'})
+                            }}
                         >
                             area
                         </Text>

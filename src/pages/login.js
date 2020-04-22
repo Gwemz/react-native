@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Text, View , StyleSheet, TouchableOpacity,Button,TextInput,TouchableHighlight, AppState,AsyncStorage,PixelRatio,Animated} from "react-native";
+import { Text, View , StyleSheet, TouchableOpacity,Button,TextInput,TouchableHighlight, AppState,AsyncStorage,PixelRatio,Animated,SafeAreaView} from "react-native";
 
+import Header from '../components/header'
 export default class LoginPage extends Component{
     constructor(props){
         super(props)
@@ -90,30 +91,37 @@ export default class LoginPage extends Component{
         })
     }
     render(){
-        // const navigation = this.props.navigation;
+        const {route} = this.props;
+        const navigation = this.props.navigation;
+        console.log(route);
         return (
-            <View style={styles.loginPart}>
-                <TextInput style={styles.inputBox} placeholder="请输入QQ号/手机号/邮箱" keyboardType="name-phone-pad" maxLength={5} onChangeText={this.changeText.bind(this)}/>
-                <View style={styles.loginBtn}>
-                    <Text style={styles.loginText}>登 录</Text>
+            <SafeAreaView>
+                <Header navigation={this.props.navigation} Title={'登录页'} />
+                <View style={styles.loginPart}>
+                    <TextInput style={styles.inputBox} placeholder="请输入QQ号/手机号/邮箱" keyboardType="name-phone-pad" maxLength={5} onChangeText={this.changeText.bind(this)}/>
+                    <View style={styles.loginBtn}>
+                        <Text style={styles.loginText}>登 录</Text>
+                    </View>
+                    <TouchableHighlight activeOpacity="0.5" underlayColor="red">
+                        <Text style={styles.hightext}>please click me!</Text>
+                    </TouchableHighlight>
+                    <Text style={styles.stateText}>当前应用的状态是：{this.state.currentState}</Text>
+                    <Button title="存储数据" onPress={()=>{
+                        this.saveData('name','daguo',(res)=>{
+                            console.log(res);
+                        })
+                    }}/>
+                    <Button title="查询数据" onPress={()=>{
+                        this.loadData('name');
+                    }}/>
+                    <Button title="删除数据" onPress={()=>{
+                        this.delData('name')
+                    }}/>
+                    <Text style={styles.stateText} onPress={()=> {
+                        navigation.navigate('MainStack')
+                    }}>当前屏幕像素密度比例为：{PixelRatio.get()}</Text>
                 </View>
-                <TouchableHighlight activeOpacity="0.5" underlayColor="red">
-                    <Text style={styles.hightext}>please click me!</Text>
-                </TouchableHighlight>
-                <Text style={styles.stateText}>当前应用的状态是：{this.state.currentState}</Text>
-                <Button title="存储数据" onPress={()=>{
-                    this.saveData('name','daguo',(res)=>{
-                        console.log(res);
-                    })
-                }}/>
-                <Button title="查询数据" onPress={()=>{
-                    this.loadData('name');
-                }}/>
-                <Button title="删除数据" onPress={()=>{
-                    this.delData('name')
-                }}/>
-                <Text style={styles.stateText}>当前屏幕像素密度比例为：{PixelRatio.get()}</Text>
-            </View>
+            </SafeAreaView>
         )
     }
 }
