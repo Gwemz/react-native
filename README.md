@@ -55,4 +55,12 @@ yarn add redux
 @react-native-community/geolocation
 
 
+redux
+
+action
+
+reducer
+
+store
+
 

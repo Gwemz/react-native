@@ -4,6 +4,7 @@ import { Text, View , StyleSheet, TouchableOpacity,Button,TextInput,ScrollView,I
 import Banner from  '../components/Banner'
 import Header from '../components/header'
 import commonStyles from '../../commonStyles'
+import store from '../store/index'
 let imgsData = ['http://www.hx2car.com/upload/daily/normal/MobileIndexPage/MobileIndexTop/2019/20191119190919.jpg','http://www.hx2car.com/upload/daily/normal/MobileIndexPage/MobileIndexTop/2020/20200327165930.jpg','http://www.hx2car.com/upload/daily/normal/MobileIndexPage/MobileIndexTop/2020/20200327100115.jpg']
 let screeWidth = Dimensions.get('window').width;
 export default class AdvPage extends Component{
@@ -12,6 +13,9 @@ export default class AdvPage extends Component{
         this.state = {
             currentPage: 0
         }
+    }
+    componentDidMount(){
+        console.log(store.getState());
     }
     changeText(text){
         // console.log(text);

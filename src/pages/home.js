@@ -3,18 +3,26 @@ import React, { Component } from "react";
 import { Text, View , StyleSheet, TouchableOpacity,Button,StatusBar,Linking,SafeAreaView } from "react-native";
 import Header from '../components/header'
 import commonStyles from '../../commonStyles'
-import { createStore } from 'redux';
+// import { createStore } from 'redux';
 
-function counter(state = 0, action) {
-    switch (action.type) {
-    case 'INCREMENT':
-      return state + 1;
-    case 'DECREMENT':
-      return state - 1;
-    default:
-      return state;
-    }
-}
+import {
+    addTodo,
+    toggleTodo,
+    setVisibilityFilter,
+    VisbilityFilters
+} from '../store/actions'
+import store from '../store/index'
+
+// function counter(state = 0, action) {
+//     switch (action.type) {
+//     case 'INCREMENT':
+//       return state + 1;
+//     case 'DECREMENT':
+//       return state - 1;
+//     default:
+//       return state;
+//     }
+// }
 
 // 子组件
 class HomeChild extends Component{
@@ -32,14 +40,40 @@ class HomeChild extends Component{
         //     let carid = route.params.carid;
         //     console.log(carid);
         // }
-        let store = createStore(counter);
-        // console.log(store);
-        store.subscribe(() => {
+
+        // let store = createStore(this.counter);
+        // // console.log(store);
+        // store.subscribe(() => {
+        //     console.log(store.getState());
+        // })
+        // store.dispatch({type: 'INCREMENT'})
+        // store.dispatch({type: 'INCREMENT'})
+        // store.dispatch({type: 'DECREMENT'})
+        // console.log(store.getState());
+
+        console.log(store.getState().todos);
+        const unsubscribe = store.subscribe(()=>{
             console.log(store.getState());
         })
-        store.dispatch({type: 'INCREMENT'})
-        store.dispatch({type: 'INCREMENT'})
-        store.dispatch({type: 'DECREMENT'})
+
+        store.dispatch(addTodo('这是大锅的第一个任务清单'));
+        store.dispatch(addTodo('大锅是个很好的人'))
+        store.dispatch(addTodo('大锅是个很牛叉的人'))
+        store.dispatch(toggleTodo(2))
+        store.dispatch(setVisibilityFilter(VisbilityFilters.SHOW_ACTIVE))
+
+        // 停止监听state更新
+        unsubscribe();
+    }
+    counter(state = 0, action) {
+        switch (action.type) {
+        case 'INCREMENT':
+          return state + 1;
+        case 'DECREMENT':
+          return state - 1;
+        default:
+          return state;
+        }
     }
     updateState = ()=> {
         const age = this.state.age == '27'?'正青春':'27';
