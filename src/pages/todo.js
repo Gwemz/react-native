@@ -4,13 +4,15 @@ import { Text, View , StyleSheet, TouchableOpacity,Button,StatusBar,Linking,Safe
 import Header from '../components/header'
 // import { createStore } from 'redux';
 import { Provider } from 'react-redux'
-import {createStore} from 'redux'
+import actions from '../action'
+import store from '../store/index'
+// import {createStore} from 'redux'
 // import todoApp from '../store/reducers'
-import { addTodo,toggleTodo } from '../todoStore/action'
-import todoApp from '../todoStore/reduce'
-import TodoList from '../components/TodoList'
+// import { addTodo,toggleTodo } from '../todoStore/action'
+// import todoApp from '../todoStore/reduce'
+// import TodoList from '../components/TodoList'
 
-let store = createStore(todoApp);
+// let store = createStore(todoApp);
 // console.log(store);
 // 子组件
 export default class TodoPage extends Component{
@@ -20,7 +22,7 @@ export default class TodoPage extends Component{
             carid: '',
             name: '大锅',
             age: '27',
-            storeState: ''
+            storeState: {}
         }
     }
     componentDidMount(){
@@ -34,9 +36,10 @@ export default class TodoPage extends Component{
                 storeState: store.getState()
             })
         })
-        store.dispatch(addTodo('I am super man!'))
-        store.dispatch(addTodo('hi man, this is redux'))
-        store.dispatch(toggleTodo(0))
+        store.dispatch(actions.addLoginInfo({name: '大锅',age: 18,sex: 'man'}))
+        store.dispatch(actions.changeTheme('深空灰/砖石蓝'))
+        // store.dispatch(addTodo('hi man, this is redux'))
+        // store.dispatch(toggleTodo(0))
     }
     renderTodoItem(){
         let todoList = [],
@@ -52,13 +55,17 @@ export default class TodoPage extends Component{
     }
     render(){
         const navigation = this.props.navigation;
+        const infos = this.state.storeState;
         return (
             <Provider store={store}>
                 <SafeAreaView>
                     <Header navigation={navigation} Title={'todoList'} />
                     {/* <Text style={{fontSize: 20}}>{JSON.stringify(this.state.storeState)}</Text> */}
                     <View>
-                        {this.renderTodoItem()}
+                        {/* {this.renderTodoItem()} */}
+                        <Text style={styles.textSize}>信息：{JSON.stringify(infos)}</Text>
+                        {/* <Text style={styles.textSize}>年龄：{this.state.storeState.age}</Text>
+                        <Text style={styles.textSize}>性别：{this.state.storeState.sex}</Text> */}
                     </View>
                 </SafeAreaView>
             </Provider>

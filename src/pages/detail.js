@@ -42,7 +42,7 @@ export default class HomePage extends Component{
                     // navigation.state.params.onGoBack();
                     // navigation.pop()
                     // navigation.goBack()
-                    navigation.navigate('Home',{name: 'detail'})
+                    navigation.navigate('Home',{name: 'detail',flag: true})
                 }}
                 >
                     {/* <StatusBar barStyle="light-content"/> */}

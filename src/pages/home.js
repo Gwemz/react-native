@@ -4,13 +4,15 @@ import { Text, View , StyleSheet, TouchableOpacity,Button,StatusBar,Linking,Safe
 import Header from '../components/header'
 import commonStyles from '../../commonStyles'
 // import { createStore } from 'redux';
+import { connect } from 'react-redux'
 
-import {
-    addTodo,
-    toggleTodo,
-    setVisibilityFilter,
-    VisbilityFilters
-} from '../store/actions'
+// import {
+//     addTodo,
+//     toggleTodo,
+//     setVisibilityFilter,
+//     VisbilityFilters
+// } from '../store/actions'
+import actions from '../action'
 import store from '../store/index'
 
 // function counter(state = 0, action) {
@@ -40,7 +42,7 @@ class HomeChild extends Component{
         //     let carid = route.params.carid;
         //     console.log(carid);
         // }
-
+        // connect(actions.addLoginInfo)
         // let store = createStore(this.counter);
         // // console.log(store);
         // store.subscribe(() => {
@@ -52,29 +54,35 @@ class HomeChild extends Component{
         // console.log(store.getState());
 
         // console.log(store.getState());
-        const unsubscribe = store.subscribe(()=>{
-            // console.log(store.getState());
-        })
+        // store.subscribe(()=>{
+        //     console.log(store.getState());
+        // })
 
-        store.dispatch(addTodo('这是大锅的第一个任务清单'));
-        store.dispatch(addTodo('大锅是个很好的人'))
-        store.dispatch(addTodo('大锅是个很牛叉的人'))
-        store.dispatch(toggleTodo(2))
-        store.dispatch(setVisibilityFilter(VisbilityFilters.SHOW_ACTIVE))
+        // // console.log(actions.addLoginInfo);
+        // store.dispatch(actions.addLoginInfo({'name':'daguo'}))
+        // store.dispatch(addTodo('这是大锅的第一个任务清单'));
+        // store.dispatch(addTodo('大锅是个很好的人'))
+        // store.dispatch(addTodo('大锅是个很牛叉的人'))
+        // store.dispatch(toggleTodo(2))
+        // store.dispatch(setVisibilityFilter(VisbilityFilters.SHOW_ACTIVE))
 
         // 停止监听state更新
-        unsubscribe();
+        // unsubscribe();
     }
-    counter(state = 0, action) {
-        switch (action.type) {
-        case 'INCREMENT':
-          return state + 1;
-        case 'DECREMENT':
-          return state - 1;
-        default:
-          return state;
-        }
-    }
+    // componentDidUpdate(){
+    //     console.log(this.props);
+    //     console.log('update');
+    // }
+    // counter(state = 0, action) {
+    //     switch (action.type) {
+    //     case 'INCREMENT':
+    //       return state + 1;
+    //     case 'DECREMENT':
+    //       return state - 1;
+    //     default:
+    //       return state;
+    //     }
+    // }
     updateState = ()=> {
         const age = this.state.age == '27'?'正青春':'27';
         this.setState({age})
@@ -98,10 +106,28 @@ class HomeChild extends Component{
 
 // 父组件
 export default class HomePage extends Component{
+    constructor(props){
+        super(props)
+        this.state = {
+            who: 'me'
+        }
+    }
+    componentDidUpdate(){
+        console.log(this.props.route.params);
+        if(this.props.route.params && this.props.route.params.flag){
+            this.props.route.params.flag = false;
+            console.log('update');
+            // console.log(this.state.who);
+            // this.setState({
+            //     who: 'you'
+            // })
+        }
+        // console.log('update');
+    }
     render(){
         const {route} = this.props;
         const navigation = this.props.navigation;
-        console.log(route);
+        // console.log(route);
         return (
             <>
                 <SafeAreaView style={commonStyles.content}>

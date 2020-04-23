@@ -66,6 +66,10 @@ const App = () => (
                 }}
             >
                 <Stack.Screen 
+                    name="Todo" 
+                    component={Todo} 
+                />
+                <Stack.Screen 
                     name="FooterTabs" 
                     component={FooterTabs} 
                     options={({ route })=>({
@@ -73,10 +77,7 @@ const App = () => (
                         // headerShown: true
                     })}
                 />
-                <Stack.Screen 
-                    name="Todo" 
-                    component={Todo} 
-                />
+                
                 <Stack.Screen 
                     name="Detail" 
                     component={Detail} 
