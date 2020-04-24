@@ -2,25 +2,20 @@ import 'react-native-gesture-handler';
 import React, { Component } from "react";
 import { Text, View , StyleSheet, TouchableOpacity,Button,StatusBar,Linking,SafeAreaView } from "react-native";
 import Header from '../components/header'
-// import { createStore } from 'redux';
 import { connect } from 'react-redux'
 import actions from '../action'
-// import store from '../store/index'
 
 // 子组件
 class TodoPage extends Component{
     constructor(props){
         super(props)
         this.state = {
-            // storeState: store.getState()
+            name: 'daguo',
+            program: 'redux'
         }
     }
     componentDidMount(){
-        // store.subscribe(() => {
-        //     this.setState({
-        //         storeState: store.getState()
-        //     })
-        // })
+        
     }
     renderTodoItem(){
         let todoList = [],
@@ -42,9 +37,10 @@ class TodoPage extends Component{
             <SafeAreaView>
                 <Header navigation={navigation} Title={'列表'} />
                 <View>
+                    <Text style={styles.textSize}>用户名称：{this.state.name}</Text>
+                    <Text style={styles.textSize}>项目名称：{this.state.program}</Text>
                     <Text style={styles.textSize}>logininfo:{JSON.stringify(logininfo)}</Text>
                     <Text style={styles.textSize}>theme: {JSON.stringify(theme)}</Text>
-                    {/* <Text style={styles.textSize}>信息：{JSON.stringify(this.state.storeState)}</Text> */}
                     <TouchableOpacity onPress={() => addLoginInfo({name: '大锅',age: 18,sex: 'man'})}>
                         <Text style={styles.storeSize}>添加用户信息</Text>
                     </TouchableOpacity>

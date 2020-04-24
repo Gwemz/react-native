@@ -12,5 +12,5 @@ import index from '../reducer'
  */
 export default createStore(
     index,
-    applyMiddleware(thunk,createLogger)
+    applyMiddleware(createLogger)
 )
