@@ -14,7 +14,7 @@ import DetailStack from './DetailStack'
 import Webs from '../pages/web'
 // import Article from '../pages/article'
 // import Detail from '../pages/detail'
-import Todo from '../pages/todo'
+import Todo from '../pages/todo2'
 import Detail from '../pages/detail';
 
 const MyTheme = {
@@ -66,16 +66,17 @@ const App = () => (
                 }}
             >
                 <Stack.Screen 
+                    name="Todo" 
+                    component={Todo} 
+                />
+
+                <Stack.Screen 
                     name="FooterTabs" 
                     component={FooterTabs} 
                     options={({ route })=>({
                         headerTitle: getHeaderTitle(route),
                         // headerShown: true
                     })}
-                />
-                <Stack.Screen 
-                    name="Todo" 
-                    component={Todo} 
                 />
                 
                 <Stack.Screen 

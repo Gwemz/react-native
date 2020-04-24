@@ -15,7 +15,7 @@ import { connect } from 'react-redux'
 import actions from '../action'
 import store from '../store/index'
 import App from './counter'
-console.log(App);
+// console.log(App);
 // function counter(state = 0, action) {
 //     switch (action.type) {
 //     case 'INCREMENT':
