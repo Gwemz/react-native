@@ -66,16 +66,16 @@ const App = () => (
                 }}
             >
                 <Stack.Screen 
-                    name="Todo" 
-                    component={Todo} 
-                />
-                <Stack.Screen 
                     name="FooterTabs" 
                     component={FooterTabs} 
                     options={({ route })=>({
                         headerTitle: getHeaderTitle(route),
                         // headerShown: true
                     })}
+                />
+                <Stack.Screen 
+                    name="Todo" 
+                    component={Todo} 
                 />
                 
                 <Stack.Screen 

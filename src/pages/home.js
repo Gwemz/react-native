@@ -14,7 +14,8 @@ import { connect } from 'react-redux'
 // } from '../store/actions'
 import actions from '../action'
 import store from '../store/index'
-
+import App from './counter'
+console.log(App);
 // function counter(state = 0, action) {
 //     switch (action.type) {
 //     case 'INCREMENT':
@@ -143,6 +144,7 @@ export default class HomePage extends Component{
                             area
                         </Text>
                     </View>
+                    {App}
                 </SafeAreaView>
             </>
         )

@@ -22,24 +22,27 @@ export default class TodoPage extends Component{
             carid: '',
             name: '大锅',
             age: '27',
-            storeState: {}
+            storeState: store.getState()
         }
     }
     componentDidMount(){
-        // console.log(store);
-        this.setState({
-            storeState: store.getState()
-        })
-        store.subscribe(()=>{
-            console.log(store.getState());
+        store.subscribe(() => {
+            // console.log('hi man ,focus . redux有变化！');
             this.setState({
                 storeState: store.getState()
             })
         })
-        store.dispatch(actions.addLoginInfo({name: '大锅',age: 18,sex: 'man'}))
-        store.dispatch(actions.changeTheme('深空灰/砖石蓝'))
-        // store.dispatch(addTodo('hi man, this is redux'))
-        // store.dispatch(toggleTodo(0))
+
+        // 添加日志功能
+        // let next = store.dispatch;
+        // store.dispatch = function dispatchAndLog(action){
+        //     // 发出action
+        //     console.log('dispatch',action);         
+        //     // 执行reducer
+        //     next(action)
+        //     console.log('next state',store.getState());
+        // }
+
     }
     renderTodoItem(){
         let todoList = [],
@@ -55,17 +58,19 @@ export default class TodoPage extends Component{
     }
     render(){
         const navigation = this.props.navigation;
-        const infos = this.state.storeState;
         return (
             <Provider store={store}>
                 <SafeAreaView>
                     <Header navigation={navigation} Title={'todoList'} />
                     {/* <Text style={{fontSize: 20}}>{JSON.stringify(this.state.storeState)}</Text> */}
                     <View>
-                        {/* {this.renderTodoItem()} */}
-                        <Text style={styles.textSize}>信息：{JSON.stringify(infos)}</Text>
-                        {/* <Text style={styles.textSize}>年龄：{this.state.storeState.age}</Text>
-                        <Text style={styles.textSize}>性别：{this.state.storeState.sex}</Text> */}
+                        <Text style={styles.textSize}>信息：{JSON.stringify(this.state.storeState)}</Text>
+                        <TouchableOpacity onPress={() => store.dispatch(actions.addLoginInfo({name: '大锅',age: 18,sex: 'man'}))}>
+                            <Text style={styles.storeSize}>添加用户信息</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => store.dispatch(actions.changeTheme('深空灰/钻石蓝💎'))}>
+                            <Text style={styles.storeSize}>添加页面主题</Text>
+                        </TouchableOpacity>
                     </View>
                 </SafeAreaView>
             </Provider>
@@ -78,6 +83,11 @@ const styles = StyleSheet.create({
         fontSize: 24,
         color: '#333333',
         textAlign: 'center',
+        lineHeight: 50
+    },
+    storeSize: {
+        color: '#ff8866',
+        fontSize: 22,
         lineHeight: 50
     }
 })
