@@ -16,6 +16,7 @@ import Webs from '../pages/web'
 // import Detail from '../pages/detail'
 import Todo from '../pages/todo2'
 import Detail from '../pages/detail';
+import FlatList from '../pages/flatlist'
 
 const MyTheme = {
     ...DefaultTheme,
@@ -66,11 +67,6 @@ const App = () => (
                 }}
             >
                 <Stack.Screen 
-                    name="Todo" 
-                    component={Todo} 
-                />
-
-                <Stack.Screen 
                     name="FooterTabs" 
                     component={FooterTabs} 
                     options={({ route })=>({
@@ -78,11 +74,22 @@ const App = () => (
                         // headerShown: true
                     })}
                 />
-                
+                <Stack.Screen 
+                    name="FlatList" 
+                    component={FlatList} 
+                    options={{title: 'FlatList'}}
+                />
+
                 <Stack.Screen 
                     name="Detail" 
                     component={Detail} 
                     options={{title: '车辆详情'}}
+                />
+                
+                
+                <Stack.Screen 
+                    name="Todo" 
+                    component={Todo} 
                 />
                 <Stack.Screen 
                     name="LoginStack" 

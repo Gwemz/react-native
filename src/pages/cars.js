@@ -92,7 +92,7 @@ export default class CarList extends Component {
 
         return (
             <SafeAreaView style={commonStyles.content}>
-                <Header navigation={navigation} Title={'找车页'} isAtRoot={true} />
+                <Header navigation={navigation} Title={'找车页'} isAtRoot={true} style={{color: '#ffffff'}} />
                 <View style={styles.pageContainer}>
                     <FlatList 
                         data={this.state.data} 

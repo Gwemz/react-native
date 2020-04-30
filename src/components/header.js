@@ -64,7 +64,8 @@ Header.defaultProps = {
 
 const styles = StyleSheet.create({
   header: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    // backgroundColor: '#ffffff'
   },
   leftButton: {
     flex: 1,

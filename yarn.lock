@@ -4040,6 +4040,11 @@ jetifier@^1.6.2:
   resolved "https://registry.npm.taobao.org/jetifier/download/jetifier-1.6.5.tgz#ea87324a4230bef20a9651178ecab978ee54a8cb"
   integrity sha1-6ocySkIwvvIKllEXjsq5eO5UqMs=
 
+jpush-react-native@^2.8.0:
+  version "2.8.0"
+  resolved "https://registry.npm.taobao.org/jpush-react-native/download/jpush-react-native-2.8.0.tgz#a26acf2bef1929a6b637b2b9a142ad16a35ac9a7"
+  integrity sha1-omrPK+8ZKaa2N7K5oUKtFqNayac=
+
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
   resolved "https://registry.npm.taobao.org/js-tokens/download/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
